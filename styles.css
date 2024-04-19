@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+
+:root {
+    --cor-um: #f3f3f3;
+    --cor-dois: #bdbdbd;
+    --cor-tres: #767676;
+    --cor-quatro: #3d3d3d;
+    --cor-cinco: #2b2b2b;
+    --cor-seis: #1f1f1f;
+    --cor-sete: #006aff;
+
+    --fonte-um: "Share Tech", sans-serif;;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-um);
+    color: var(--cor-um);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--cor-seis);
+}
+/* LOGIN BOX */
+.login_box {
+    position: relative;
+    width: 30vw;
+    height: 70vh;
+    background: var(--cor-cinco);
+    border-radius: 1vw;
+    overflow: hidden;
+}
+.login_box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 30vw;
+    height: 70vh;
+    background: linear-gradient(0deg, transparent, transparent, var(--cor-sete), var(--cor-sete), var(--cor-sete));
+    z-index: 1;
+    animation: borderRotate 6s linear infinite;
+    transform-origin: bottom right;
+}
+.login_box::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 30vw;
+    height: 70vh;
+    background: linear-gradient(0deg, transparent, transparent, var(--cor-sete), var(--cor-sete), var(--cor-sete));
+    z-index: 1;
+    animation: borderRotate 6s linear infinite;
+    transform-origin: bottom right;
+    animation-delay: -3s;
+}
+@keyframes borderRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 
+
+.login_box form {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    inset: 4px;
+    background: var(--cor-quatro);
+    border-radius: 1vw;
+    padding: 4vw 2vw;
+    z-index: 2;
+}
+/* LOGIN TITULO */
+.login_box h2 {
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.15vw;
+    font-size: 2vw;
+}
+/* LOGIN INPUT */
+.login_input_box {
+    position: relative;
+    width: 100%;
+    margin-top: 2vw;
+}
+
+.login_input_box input {
+    position: relative;
+    width: 100%;
+    padding: 1.1vw 1vw 0.8vw;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0.1vw;
+    font-size: 1.1vw;
+    transition: 0.5s;
+    z-index: 10;
+    color: var(--cor-seis);
+}
+
+.login_input_box label {
+    position: absolute;
+    left: 0;
+    padding: 1.1vw;
+    pointer-events: none;
+    color: var(--cor-dois);
+    letter-spacing: 0.1vw;
+    font-size: 1.1vw;
+    transition: 0.5s;
+}
+
+.login_input_box input:valid ~ label,
+.login_input_box input:focus ~ label {
+    color: var(--cor-um);
+    transform: translateY(-2.3vw);
+}
+
+.login_input_box span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 0.5vw;
+    background: var(--cor-um);
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.login_input_box input:valid ~ span,
+.login_input_box input:focus ~ span {
+    height: 3vw;
+}
+
+.login_icon {
+    position: absolute;
+    right: 0;
+    padding: 1.1vw;
+    font-size: 1.1vw;
+    color: var(--cor-um);
+    transition: 0.3s;
+}
+
+.login_input_box input:valid ~ i,
+.login_input_box input:focus ~ i {
+    color: var(--cor-sete);
+}
+
+.login_input_box .pass_icon {
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* PASSWORD LINKS */
+.login_password {
+    display: flex;
+    margin: 0.5vw 0;
+    width: 100%;
+    font-size: 1.2vw;
+    padding: 0 0 3vw;
+    border-bottom: 3px solid var(--cor-sete);
+}
+
+.login_password input:checked ~ label {
+    color: var(--cor-sete);
+}
+
+.login_password a {
+    position: absolute;
+    right: 2vw;
+    text-decoration: none;
+    opacity: 0.7;
+}
+.login_password a:hover {
+    opacity: 1;
+}
+.login_password a:active {
+    color: var(--cor-sete);
+}
+/* LOGIN BUTTON */
+.login_btn {
+    display: flex;
+    margin: 3vw 0;
+}
+.login_btn button {
+    padding: 0.5vw 1.5vw;
+    color: var(--cor-seis);
+    background: var(--cor-dois);
+    font-size: 1.2vw;
+    letter-spacing: 0.1vw;
+    border-radius: 1vw;
+    opacity: 0.8;
+    width: 8vw;
+}
+.login_btn button:hover {
+    opacity: 1;
+}
+.login_btn button:active {
+    color: var(--cor-sete);
+    background: var(--cor-um);
+}
+
+.sing {
+    position: absolute;
+    right: 1.7vw;
+}
+
+@media screen and (max-width: 1024px) {
+    .login_box {
+        width: 60vw;
+    }
+    .login_box::before {
+        width: 60vw;
+    }
+    .login_box::after {
+        width: 60vw;
+    }
+    .login_box h2 {
+        margin-top: 0.5vw;
+        font-size: 4vw;
+    }
+
+    .login_input_box {
+        position: relative;
+        width: 100%;
+        margin-top: 7vw;
+    }  
+    .login_input_box input {
+        font-size: 3vw;
+    }   
+    .login_input_box label {
+        font-size: 3vw;
+        transition: 0.5s;
+    }   
+    .login_input_box input:valid ~ label,
+    .login_input_box input:focus ~ label {
+        transform: translateY(-6vw);
+    }
+    .login_input_box input:valid ~ span,
+    .login_input_box input:focus ~ span {
+        height: 6vw;
+    }    
+    .login_icon {
+        font-size: 3vw;
+    }
+
+    .login_password {
+        margin: 3vw 0;
+        font-size: 3vw;
+        padding: 0 0 10vw;
+    }    
+    .login_password a {
+        position: absolute;
+        right: 2vw;
+        text-decoration: none;
+        opacity: 0.7;
+    }
+
+    .login_btn {
+        margin: 5vh 0;
+    }
+    .login_btn button {
+        padding: 0.5vw 1.5vw;
+        color: var(--cor-seis);
+        background: var(--cor-dois);
+        font-size: 5vw;
+        letter-spacing: 0.1vw;
+        border-radius: 1vw;
+        opacity: 0.8;
+        width: 25vw;
+    }
+    
+}
+@media screen and (max-width: 520px) {
+    .login_box {
+        width: 90vw;
+    }
+    .login_box::before {
+        width: 90vw;
+    }
+    .login_box::after {
+        width: 90vw;
+    }
+    .login_box h2 {
+        margin-top: 4vw;
+        font-size: 12vw;
+    }
+
+    .login_input_box {
+        margin-top: 10vw;
+    }  
+    .login_input_box input {
+        font-size: 7vw;
+    }   
+    .login_input_box label {
+        font-size: 6vw;
+        transition: 0.5s;
+    }   
+    .login_input_box input:valid ~ label,
+    .login_input_box input:focus ~ label {
+        transform: translateY(-9vw);
+    }
+    .login_input_box input:valid ~ span,
+    .login_input_box input:focus ~ span {
+        height: 10vw;
+    }    
+    .login_icon {
+        font-size: 7vw;
+    }
+
+    .login_password {
+        margin: 7vw 0;
+        font-size: 5vw;
+        padding: 0 0 5vw;
+    }    
+
+    .login_btn {
+        margin: 0;
+    }
+    .login_btn button {
+        padding: 0.5vw 1.5vw;
+        font-size: 9vw;
+        width: 40vw;
+    }
+}
