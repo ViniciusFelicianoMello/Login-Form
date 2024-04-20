@@ -15,3 +15,36 @@ ShowHide.forEach(Icon => {
         });
     });
 });
+
+// MODAL
+const popupView = document.querySelectorAll(".pop-up"),
+      popupMais = document.querySelectorAll(".popup_open"),
+      popupClose = document.querySelectorAll(".popup_close");
+
+        // Função para abrir o popup
+        function abrirPopup(index) {
+            popupView[index].classList.add("active-popup");
+        }
+
+        // Função para fechar o popup
+        function fecharPopup() {
+            popupView.forEach(popup => {
+                popup.classList.remove("active-popup");
+            });
+            console.log("fecha");
+        }
+
+        // Adiciona o ouvinte de evento para abrir o popup
+        popupMais.forEach((popup, index) => {
+            popup.addEventListener("click", () => {
+                abrirPopup(index);
+            });
+        });
+
+        // Adiciona o ouvinte de evento para fechar o popup
+        popupClose.forEach(popup => {
+            popup.addEventListener("click", (event) => {
+                event.stopPropagation();
+                fecharPopup();
+            });
+        });

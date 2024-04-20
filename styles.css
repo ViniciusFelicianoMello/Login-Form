@@ -7,6 +7,7 @@
     --cor-quatro: #3d3d3d;
     --cor-cinco: #2b2b2b;
     --cor-seis: #1f1f1f;
+    --cor-seis-t: #1f1f1f9b;
     --cor-sete: #006aff;
 
     --fonte-um: "Share Tech", sans-serif;;
@@ -36,35 +37,6 @@ body {
     border-radius: 1vw;
     overflow: hidden;
 }
-.login_box::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 30vw;
-    height: 70vh;
-    background: linear-gradient(0deg, transparent, transparent, var(--cor-sete), var(--cor-sete), var(--cor-sete));
-    z-index: 1;
-    animation: borderRotate 6s linear infinite;
-    transform-origin: bottom right;
-}
-.login_box::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 30vw;
-    height: 70vh;
-    background: linear-gradient(0deg, transparent, transparent, var(--cor-sete), var(--cor-sete), var(--cor-sete));
-    z-index: 1;
-    animation: borderRotate 6s linear infinite;
-    transform-origin: bottom right;
-    animation-delay: -3s;
-}
-@keyframes borderRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-} 
 
 .login_box form {
     display: flex;
@@ -74,7 +46,6 @@ body {
     background: var(--cor-quatro);
     border-radius: 1vw;
     padding: 4vw 2vw;
-    z-index: 2;
 }
 /* LOGIN TITULO */
 .login_box h2 {
@@ -178,6 +149,7 @@ body {
     right: 2vw;
     text-decoration: none;
     opacity: 0.7;
+    cursor: pointer;
 }
 .login_password a:hover {
     opacity: 1;
@@ -187,8 +159,9 @@ body {
 }
 /* LOGIN BUTTON */
 .login_btn {
+    position: relative;
     display: flex;
-    margin: 3vw 0;
+    margin: 50vh 2em;
 }
 .login_btn button {
     padding: 0.5vw 1.5vw;
@@ -196,7 +169,7 @@ body {
     background: var(--cor-dois);
     font-size: 1.2vw;
     letter-spacing: 0.1vw;
-    border-radius: 1vw;
+    border-radius: 1em;
     opacity: 0.8;
     width: 8vw;
 }
@@ -207,20 +180,167 @@ body {
     color: var(--cor-sete);
     background: var(--cor-um);
 }
-
 .sing {
     position: absolute;
-    right: 1.7vw;
+    right: 0;
+}
+
+/* POPUP */
+.pop-up {
+    display: grid;
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    background: var(--cor-seis-t);
+    place-items: center;
+    z-index: 1000;
+    cursor: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.popup_card {
+    position: relative;
+    background: var(--cor-quatro);
+    border: 4px solid var(--cor-cinco);
+    padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+    border-radius: 2rem;
+    width: 60rem;
+    height: 50vh;
+    transform: scale(0.7);
+    margin-top: 0;
+    overflow: visible;
+}
+
+.popup_close {
+color: var(--cor-um);
+font-size: 1.5rem;
+font-weight: bolder;
+margin-left: 54rem;
+margin-top: -5vh;
+position: absolute;
+cursor: pointer;
+z-index: 2000;
+opacity: 0.6;
+}
+.popup_close:hover {
+    opacity: 1;
+}
+.popup_close:active {
+    color: var(--cor-sete);
+}
+.popup_card h2 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: -3vh;
+    font-size: 2.5em;
+    color: var(--cor-sete);
+}
+.popup_card p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+}
+/* INPUT POPUP */
+.popup_input_box {
+    position: relative;
+    width: 100%;
+    margin-top: 2em;
+}
+.popup_input_box input {
+    position: relative;
+    width: 100%;
+    padding: 1.1vw 1vw 0.8vw;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0.1vw;
+    font-size: 1.6vw;
+    transition: 0.5s;
+    z-index: 10;
+    color: var(--cor-seis);
+}
+.popup_input_box label {
+    position: absolute;
+    left: 0;
+    padding: 1.1vw;
+    pointer-events: none;
+    color: var(--cor-dois);
+    letter-spacing: 0.1vw;
+    font-size: 1.6vw;
+    transition: 0.5s;
+}
+.popup_input_box input:valid ~ label,
+.popup_input_box input:focus ~ label {
+    color: var(--cor-um);
+    transform: translateY(-2.5vw);
+}
+.popup_input_box span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 0.5vw;
+    background: var(--cor-um);
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+.popup_input_box input:valid ~ span,
+.popup_input_box input:focus ~ span {
+    height: 2.8em;
+}
+.popup_icon {
+    position: absolute;
+    right: 0;
+    padding: 1.1vw;
+    font-size: 1.6vw;
+    color: var(--cor-um);
+    transition: 0.3s;
+    z-index: 10;
+}
+.popup_input_box input:valid ~ i,
+.popup_input_box input:focus ~ i {
+    color: var(--cor-sete);
+}
+.popup_input_box .pass_icon {
+    cursor: pointer;
+    z-index: 10;
+}
+/* POPUP BUTTON */
+.popup_btn {
+    display: flex;
+    margin: 3vw 0;
+}
+.popup_btn button {
+    padding: 0.3em 1.3em;
+    color: var(--cor-seis);
+    background: var(--cor-dois);
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    border-radius: 1em;
+    opacity: 0.8;
+    width: 8em;
+}
+.popup_btn button:hover {
+    opacity: 1;
+}
+.popup_btn button:active {
+    color: var(--cor-sete);
+    background: var(--cor-um);
+}
+/* ATIVAR POP-UP */
+.pop-up.active-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
 }
 
 @media screen and (max-width: 1024px) {
     .login_box {
-        width: 60vw;
-    }
-    .login_box::before {
-        width: 60vw;
-    }
-    .login_box::after {
         width: 60vw;
     }
     .login_box h2 {
@@ -265,28 +385,58 @@ body {
     }
 
     .login_btn {
-        margin: 5vh 0;
+        margin: 45vh 2em;
     }
     .login_btn button {
-        padding: 0.5vw 1.5vw;
-        color: var(--cor-seis);
-        background: var(--cor-dois);
-        font-size: 5vw;
-        letter-spacing: 0.1vw;
-        border-radius: 1vw;
-        opacity: 0.8;
-        width: 25vw;
+        font-size: 4vw;
+        width: 20vw;
     }
-    
+    .popup_card {
+        width: 130%;
+        height: 50vh;
+    }
+    .popup_close {
+        font-size: 3rem;
+        margin-left: 115vw;
+        margin-top: -3vh;
+    }
+    .popup_card h2 {
+        font-size: 2.5em;
+    }
+    .popup_card p {
+        font-size: 1.5em;
+    }
+    .popup_input_box {
+        margin-top: 3em;
+    }
+    .popup_input_box input {
+        font-size: 2em;
+    }
+    .popup_input_box label {
+        font-size: 2em;
+    }
+    .popup_input_box input:valid ~ label,
+    .popup_input_box input:focus ~ label {
+        transform: translateY(-1.5em);
+    }
+    .popup_input_box input:valid ~ span,
+    .popup_input_box input:focus ~ span {
+        height: 3em;
+    }
+    .popup_icon {
+        font-size: 2em;
+    }
+    .popup_input_box input:valid ~ i,
+    .popup_input_box input:focus ~ i {
+        color: var(--cor-sete);
+    }
+    .popup_input_box .pass_icon {
+        cursor: pointer;
+        z-index: 10;
+    }
 }
 @media screen and (max-width: 520px) {
     .login_box {
-        width: 90vw;
-    }
-    .login_box::before {
-        width: 90vw;
-    }
-    .login_box::after {
         width: 90vw;
     }
     .login_box h2 {
@@ -323,11 +473,43 @@ body {
     }    
 
     .login_btn {
-        margin: 0;
+        margin: 50vh 0.5em;
     }
     .login_btn button {
-        padding: 0.5vw 1.5vw;
-        font-size: 9vw;
-        width: 40vw;
+        padding: 1vw 1.5vw;
+        font-size: 7vw;
+        width: 35vw;
+    }
+    .popup_card {
+        width: 140%;
+        height: 60vh;
+    }
+    .popup_close {
+        font-size: 3rem;
+        margin-left: 115vw;
+        margin-top: -3vh;
+    }
+    .popup_card h2 {
+        font-size: 2em;
+        margin-top: -1vh;
+    }
+    .popup_card p {
+        font-size: 1.1em;
+    }
+    .popup_input_box {
+        margin-top: 5em;
+        width: 110%;
+        margin-left: -5.5vw;
+    }
+    .popup_btn {
+        display: flex;
+        margin: 6vh 0;
+    }
+    .popup_btn button {
+        padding: 0.3em 1.3em;
+        color: var(--cor-seis);
+        background: var(--cor-dois);
+        font-size: 1.5em;
+        width: 100%;
     }
 }
