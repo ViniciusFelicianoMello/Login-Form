@@ -55,9 +55,6 @@ body {
     justify-content: space-between;
     gap: 3em;
 }
-.rowdistance {
-    width: 70em;
-}
 
 .sing_close {
     position: absolute;
@@ -71,7 +68,7 @@ body {
     opacity: 1;
 }
 .singup_box.transformed {
-    transform: translateY(-80em);
+    transform: translateY(-80em) translateX(-25vw);
 }
 
 /* LOGIN BOX */
@@ -103,7 +100,7 @@ body {
     border-radius: 1vw;
     transform: translateY(-28vw) translateX(-25vw);
     z-index: 50;
-    transition: transform 0.3s ease;
+    transition: transform 0.7s ease-in-out;
 }
 /* SINGUP SUBBOX */
 .subBox {
@@ -435,7 +432,8 @@ opacity: 0.6;
     .login_box {
         width: 60vw;
     }
-    .login_box h2 {
+    .login_box h2,
+    .singup_box h2 {
         margin-top: 0.5vw;
         font-size: 4vw;
     }
@@ -529,12 +527,40 @@ opacity: 0.6;
         cursor: pointer;
         z-index: 10;
     }
+
+    .singup_box {
+        width: 90vw;
+        height: 90vh;
+        transform: translateY(-78vw) translateX(-38.5vw);
+    }
+    .sing_close {
+        position: absolute;
+        margin-top: 0;
+        font-size: 4vw;
+    }
+    .singup_box.transformed {
+        transform: translateY(-140em) translateX(-38.5vw);
+    }
+    .subBox h3 {
+        font-size: 3vw;
+    }
+    .flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0em;
+    }
+    .singup_btn_form {
+        margin-top: 2em;
+    }
+    
 }
 @media screen and (max-width: 520px) {
     .login_box {
         width: 90vw;
     }
-    .login_box h2 {
+    .login_box h2,
+    .singup_box h2 {
         margin-top: 4vw;
         font-size: 12vw;
     }
@@ -609,5 +635,14 @@ opacity: 0.6;
         background: var(--cor-dois);
         font-size: 1.5em;
         width: 100%;
+    }
+    
+    .singup_box {
+        width: 95vw;
+        height: 95vh;
+        transform: translateY(-63vh) translateX(-40vw);
+    }
+    .subBox h3 {
+        font-size: 4vw;
     }
 }

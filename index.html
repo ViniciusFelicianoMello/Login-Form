@@ -9,9 +9,11 @@
 </head>
 
 <body>
+    <!-- LOGIN BOX -->
     <div class="login_box">
         <form>
             <h2>Login</h2>
+            <!-- LOGIN INPUTS -->
             <div class="login_input_box">
                 <input type="text" required>
                 <label for="Email">Email</label>
@@ -24,10 +26,11 @@
                 <span></span>
                 <i class="fa-solid fa-eye-slash login_icon pass_icon show_hide"></i>
             </div>
+            <!-- LOGIN PASSWORD QUEST -->
             <div class="login_password">
                 <input type="checkbox">
                 <label for="chk">Lembrar de mim.</label>
-
+                <!-- PASSWORD MODAL ESQUECEU A SENHA -->
                 <a class="popup_open">Esqueceu a senha?</a>
                 <div class="pop-up">
                    <div class="popup_card">
@@ -49,15 +52,18 @@
                     </div>
                 </div>
             </div>   
-                  
+            <!-- LOGIN BOTAO -->
             <div class="login_btn">
                 <button type="submit">Login</button>
-                <div class="btn_cadastre">      
+                <!-- CADASTRE BOTAO -->
+                <div class="btn_cadastre">         
                     <button type="button" class="sing singup_btn">Cadastre</button>
+                    <!-- CADASTRE MODAL -->
                     <div class="singup_box">
                         <form>
                             <span class="sing_close">X</span>
                             <h2>Cadastre-se</h2>
+                            <!-- CADASTRO INFOS -->
                             <div class="subBox">    
                                 <h3 class="dados_titulo">Dados</h3>
                                 <div class="flex">
@@ -85,8 +91,8 @@
                 
                                 <div class="flex">
                                     <div class="login_input_box">
-                                        <input type="tel" required>
-                                        <label for="telefone">Telefone</label>
+                                        <input type="tel" required minlength="11">
+                                        <label for="telefone">Telefone ( DD912345678 )</label>
                                         <span></span>
                                         <i class="fa-solid fa-phone login_icon"></i>
                                     </div>
@@ -107,11 +113,11 @@
                                         </select>
                                     </div>
                                 </div>
-
+                                <!-- CADASTRO INFO PASSWORD -->
                                 <div class="flex">
                                     <div class="login_input_box">
                                         <input type="password" id="senha" class="input_password" required>
-                                        <label for="Senha">Senha</label>
+                                        <label for="Senha">Senha ( Exemplo8@ )</label>
                                         <span></span>
                                         <i class="fa-solid fa-eye-slash login_icon pass_icon show_hide"></i>
                                     </div>
@@ -125,7 +131,7 @@
                                 </div>
                             </div>
                 
-                            <div class="subBox">
+                            <!-- <div class="subBox">
                                 <h3>Endereço</h3>
                                 <div class="flex">
                                     <div class="login_input_box">
@@ -168,7 +174,7 @@
                 
                                 <div class="flex">
                                     <div class="login_input_box">
-                                        <input type="text" readonly>
+                                        <input type="text" required>
                                         <label for="complemento">Complemento</label>
                                         <span></span>
                                         <i class="fa-solid fa-house-laptop login_icon"></i>
@@ -181,10 +187,11 @@
                                         <i class="fa-solid fa-envelopes-bulk login_icon"></i>
                                     </div>
                                 </div>
-                            </div>
-                
-                            <div class="popup_btn">
-                                <button type="submit">Cadastrar</button>
+                            </div> -->
+
+                            <!-- CADASTRE BOTAO DO FORM -->
+                            <div class="signup_btn singup_btn_form">
+                                <button type="submit" id="singup_btn">Cadastrar</button>
                             </div>
                         </form>
                     </div>

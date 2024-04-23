@@ -1,7 +1,7 @@
+// Alternar entre os icones da senha
 const ShowHide = document.querySelectorAll(".show_hide"),
     ShowPass = document.querySelectorAll(".input_password");
 
-// Alternar entre os icones da senha
 ShowHide.forEach(Icon => {
     Icon.addEventListener("click", () => {
         ShowPass.forEach(Password => {
@@ -50,21 +50,37 @@ const popupView = document.querySelectorAll(".pop-up"),
         });
 
 // CONFIRME A SENHA
-var senhaInput = document.getElementById('senha');
-var confirmarSenhaInput = document.getElementById('confirmarSenha');
-var message = document.getElementById('pass_message');
+const senhaInput = document.getElementById('senha');
+const confirmarSenhaInput = document.getElementById('confirmarSenha');
+const message = document.getElementById('pass_message');
+const singupBtn = document.getElementById('singup_btn');
+
 
 senhaInput.addEventListener('input', validarSenhas);
 confirmarSenhaInput.addEventListener('input', validarSenhas);
 
 function validarSenhas() {
+    const senha = senhaInput.value;
 
-    if (senhaInput.value === confirmarSenhaInput.value) {
-        message.innerHTML = 'Senhas coincidem.';
+    var comprimentoMinimo = 8;
+    var possuiCaracteresEspeciais = /[!@#$%^&*(),.?":{}|<>]/.test(senha);
+    var possuiLetrasMaiusculas = /[A-Z]/.test(senha);
+    var possuiLetrasMinusculas = /[a-z]/.test(senha);
+    var possuiNumeros = /[0-9]/.test(senha);
+
+    if (senhaInput.value === confirmarSenhaInput.value &&
+        senha.length >= comprimentoMinimo &&
+        possuiCaracteresEspeciais &&
+        possuiLetrasMaiusculas &&
+        possuiLetrasMinusculas &&
+        possuiNumeros) {
+        message.innerHTML = 'Senhas coincidem e Senha forte.';
         message.style.color = 'var(--cor-sete)';
+        singupBtn.disabled = false;
     } else {
-        message.innerHTML = 'Senhas não coincidem.';
+        message.innerHTML = 'Senhas não coincidem e/ou Senha fraca.';
         message.style.color = 'var(--cor-error)';
+        singupBtn.disabled = true;  
     }
 }
 
