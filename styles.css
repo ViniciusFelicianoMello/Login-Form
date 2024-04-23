@@ -10,6 +10,8 @@
     --cor-seis-t: #1f1f1f9b;
     --cor-sete: #006aff;
 
+    --cor-error: #ff0000;
+
     --fonte-um: "Share Tech", sans-serif;;
 }
 
@@ -27,7 +29,51 @@ body {
     align-items: center;
     height: 100vh;
     background: var(--cor-seis);
+    overflow: hidden;
 }
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 0.1vh;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--cor-dois);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-tres);
+}
+::-webkit-scrollbar-horizontal {
+    height: 1px;
+}
+
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 3em;
+}
+.rowdistance {
+    width: 70em;
+}
+
+.sing_close {
+    position: absolute;
+    margin-top: -5vh;
+    opacity: 0.7;
+    cursor: pointer;
+    font-size: 2vw;
+    color: var(--cor-error);
+}
+.sing_close:hover {
+    opacity: 1;
+}
+.singup_box.transformed {
+    transform: translateY(-80em);
+}
+
 /* LOGIN BOX */
 .login_box {
     position: relative;
@@ -35,10 +81,10 @@ body {
     height: 70vh;
     background: var(--cor-cinco);
     border-radius: 1vw;
-    overflow: hidden;
 }
 
-.login_box form {
+.login_box form,
+.singup_box form {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -46,14 +92,42 @@ body {
     background: var(--cor-quatro);
     border-radius: 1vw;
     padding: 4vw 2vw;
+    overflow: scroll;
 }
+/* SINGUP BOX */
+.singup_box {
+    position: fixed;
+    width: 60vw;
+    height: 90vh;
+    background: var(--cor-cinco);
+    border-radius: 1vw;
+    transform: translateY(-28vw) translateX(-25vw);
+    z-index: 50;
+    transition: transform 0.3s ease;
+}
+/* SINGUP SUBBOX */
+.subBox {
+    position: relative;
+    margin: 1em 0;
+}
+
 /* LOGIN TITULO */
-.login_box h2 {
+.login_box h2,
+.singup_box h2 {
     font-weight: 700;
     text-align: center;
     letter-spacing: 0.15vw;
     font-size: 2vw;
 }
+
+/* SINGUP SUBTITULO */
+.subBox h3 {
+    font-weight: 700;
+    margin-left: 2vw;
+    font-size: 1.5vw;
+    letter-spacing: 0.15vw;
+}
+
 /* LOGIN INPUT */
 .login_input_box {
     position: relative;
@@ -61,7 +135,8 @@ body {
     margin-top: 2vw;
 }
 
-.login_input_box input {
+.login_input_box input,
+.login_input_box select {
     position: relative;
     width: 100%;
     padding: 1.1vw 1vw 0.8vw;
@@ -74,6 +149,10 @@ body {
     transition: 0.5s;
     z-index: 10;
     color: var(--cor-seis);
+}
+.login_input_box select {
+    background-color: var(--cor-um);
+    border-radius: 0.5vw;
 }
 
 .login_input_box label {
@@ -88,7 +167,8 @@ body {
 }
 
 .login_input_box input:valid ~ label,
-.login_input_box input:focus ~ label {
+.login_input_box input:focus ~ label,
+.label_ativo {
     color: var(--cor-um);
     transform: translateY(-2.3vw);
 }
@@ -107,7 +187,8 @@ body {
 }
 
 .login_input_box input:valid ~ span,
-.login_input_box input:focus ~ span {
+.login_input_box input:focus ~ span,
+.login_input_box input ~ .open_span {
     height: 3vw;
 }
 
@@ -128,6 +209,10 @@ body {
 .login_input_box .pass_icon {
     cursor: pointer;
     z-index: 10;
+}
+
+.login_input_box option{
+    color: var(--cor-seis);
 }
 
 /* PASSWORD LINKS */
@@ -156,6 +241,13 @@ body {
 }
 .login_password a:active {
     color: var(--cor-sete);
+}
+/* PASSWORD CONFIRM */
+#pass_message {
+    position: absolute;
+    margin-top: 0.5em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
 }
 /* LOGIN BUTTON */
 .login_btn {
@@ -353,7 +445,8 @@ opacity: 0.6;
         width: 100%;
         margin-top: 7vw;
     }  
-    .login_input_box input {
+    .login_input_box input,
+    .login_input_box select {
         font-size: 3vw;
     }   
     .login_input_box label {
@@ -361,11 +454,13 @@ opacity: 0.6;
         transition: 0.5s;
     }   
     .login_input_box input:valid ~ label,
-    .login_input_box input:focus ~ label {
+    .login_input_box input:focus ~ label,
+    .label_ativo {
         transform: translateY(-6vw);
     }
     .login_input_box input:valid ~ span,
-    .login_input_box input:focus ~ span {
+    .login_input_box input:focus ~ span,
+    .login_input_box input ~ .open_span {
         height: 6vw;
     }    
     .login_icon {
@@ -447,7 +542,8 @@ opacity: 0.6;
     .login_input_box {
         margin-top: 10vw;
     }  
-    .login_input_box input {
+    .login_input_box input,
+    .login_input_box select {
         font-size: 7vw;
     }   
     .login_input_box label {
@@ -455,11 +551,13 @@ opacity: 0.6;
         transition: 0.5s;
     }   
     .login_input_box input:valid ~ label,
-    .login_input_box input:focus ~ label {
+    .login_input_box input:focus ~ label,
+    .label_ativo {
         transform: translateY(-9vw);
     }
     .login_input_box input:valid ~ span,
-    .login_input_box input:focus ~ span {
+    .login_input_box input:focus ~ span,
+    .login_input_box input ~ .open_span {
         height: 10vw;
     }    
     .login_icon {

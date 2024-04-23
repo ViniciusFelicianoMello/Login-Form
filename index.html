@@ -52,8 +52,145 @@
                   
             <div class="login_btn">
                 <button type="submit">Login</button>
+                <div class="btn_cadastre">      
+                    <button type="button" class="sing singup_btn">Cadastre</button>
+                    <div class="singup_box">
+                        <form>
+                            <span class="sing_close">X</span>
+                            <h2>Cadastre-se</h2>
+                            <div class="subBox">    
+                                <h3 class="dados_titulo">Dados</h3>
+                                <div class="flex">
+                                    <div class="login_input_box">
+                                        <input type="text" required>
+                                        <label for="nome">Nome Completo</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-face-smile login_icon"></i>
+                                    </div>
                 
-                <button type="button" class="sing">Cadastre</button>
+                                    <div class="login_input_box">
+                                        <input type="text" required maxlength="11">
+                                        <label for="cpf">cpf</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-id-card login_icon"></i>
+                                    </div>
+                                </div>
+                
+                                <div class="login_input_box">
+                                    <input type="text" required>
+                                    <label for="Email">Email</label>
+                                    <span></span>
+                                    <i class="fa-solid fa-envelope login_icon"></i>
+                                </div>
+                
+                                <div class="flex">
+                                    <div class="login_input_box">
+                                        <input type="tel" required>
+                                        <label for="telefone">Telefone</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-phone login_icon"></i>
+                                    </div>
+                
+                                    <div class="login_input_box">
+                                        <input type="date" required>
+                                        <label class="label_ativo" for="nome">Data</label>
+                                        <span class="open_span"></span>
+                                    </div>
+                
+                                    <div class="login_input_box">
+                                        <label class="label_ativo" for="nome">Genêro</label>
+                                        <select id="animais" name="animais">
+                                            <option value="masculino">Masculino</option>
+                                            <option value="feminino">Feminino</option>
+                                            <option value="feminino">Trans</option>
+                                            <option value="outro">Prefiro não informar</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="flex">
+                                    <div class="login_input_box">
+                                        <input type="password" id="senha" class="input_password" required>
+                                        <label for="Senha">Senha</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-eye-slash login_icon pass_icon show_hide"></i>
+                                    </div>
+                                    <div class="login_input_box">
+                                        <input type="password" id="confirmarSenha" class="input_password" required>
+                                        <label for="Senha">Confirme a Senha</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-eye-slash login_icon pass_icon show_hide"></i>
+                                        <p id="pass_message"></p>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="subBox">
+                                <h3>Endereço</h3>
+                                <div class="flex">
+                                    <div class="login_input_box">
+                                        <input type="text" required>
+                                        <label for="rua">Rua</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-location-dot login_icon"></i>
+                                    </div>
+                
+                                    <div class="login_input_box">
+                                        <input type="text" required>
+                                        <label for="numero">Numero</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-magnifying-glass-location login_icon"></i>
+                                    </div>
+                                </div>
+                
+                                <div class="flex">
+                                    <div class="login_input_box">
+                                        <input type="text" required>
+                                        <label for="bairro">Bairro</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-map-location-dot login_icon"></i>
+                                    </div>
+                                    
+                                    <div class="login_input_box">
+                                        <input type="text" required>
+                                        <label for="cidade">Cidade</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-city login_icon"></i>
+                                    </div>
+                                    
+                                    <div class="login_input_box">
+                                        <input type="text" required>
+                                        <label for="estado">Estado</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-compass login_icon"></i>
+                                    </div>
+                                </div>
+                
+                                <div class="flex">
+                                    <div class="login_input_box">
+                                        <input type="text" readonly>
+                                        <label for="complemento">Complemento</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-house-laptop login_icon"></i>
+                                    </div>
+                
+                                    <div class="login_input_box">
+                                        <input type="text" required autocomplete>
+                                        <label for="cep">CEP</label>
+                                        <span></span>
+                                        <i class="fa-solid fa-envelopes-bulk login_icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="popup_btn">
+                                <button type="submit">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+         
             </div>
         </form>
     </div>

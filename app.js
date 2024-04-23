@@ -48,3 +48,37 @@ const popupView = document.querySelectorAll(".pop-up"),
                 fecharPopup();
             });
         });
+
+// CONFIRME A SENHA
+var senhaInput = document.getElementById('senha');
+var confirmarSenhaInput = document.getElementById('confirmarSenha');
+var message = document.getElementById('pass_message');
+
+senhaInput.addEventListener('input', validarSenhas);
+confirmarSenhaInput.addEventListener('input', validarSenhas);
+
+function validarSenhas() {
+
+    if (senhaInput.value === confirmarSenhaInput.value) {
+        message.innerHTML = 'Senhas coincidem.';
+        message.style.color = 'var(--cor-sete)';
+    } else {
+        message.innerHTML = 'Senhas não coincidem.';
+        message.style.color = 'var(--cor-error)';
+    }
+}
+
+// FECHAR CADASTRAR
+document.querySelector('.sing_close').addEventListener('click', function() {
+    document.querySelector('.singup_box').classList.add('transformed');
+});
+
+// ABRIR CADASTRAR
+document.querySelector('.singup_btn').addEventListener('click', function() {
+    document.querySelector('.singup_box').classList.remove('transformed');
+});
+
+// DEIXA A CLASSE TRANSFORMED ADICIONADA QUANDO INICIA A PAGINA
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.singup_box').classList.add('transformed');
+});
